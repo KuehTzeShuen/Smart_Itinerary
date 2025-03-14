@@ -26,7 +26,7 @@ const Itinerary = () => {
   const fetchResponse = async () => {
     try {
       console.log('Fetching response for:', inputValue) // Log the input value before fetching
-      const apiKey = ''
+      const apiKey = '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'
       console.log('API Key:', apiKey) // Log the API key
       const result = await axios.post(
         'https://api.openai.com/v1/chat/completions',
