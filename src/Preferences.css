@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-bottom: 2px solid #f1f1f1;
+  }
+  
+  .logo {
+    font-size: 23px;
+    font-weight: 600;
+    color: #FF99A0;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #000; /* Change links to black */
+    font-weight: 500;
+  }
+  
+  .sign-in-btn {
+    padding: 10px 20px;
+    background-color: #000; /* Change button color to black */
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .main-content {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    background-color: #fff; /* Form background is white */
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .form-container h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-container label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+  }
+  
+  .form-container select, .form-container input[type="number"], .form-container input[type="radio"], .form-container input[type="checkbox"] {
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  
+  .form-container .option-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  
+  /* Button Style for Radio/Checkbox options */
+  .form-container .btn-option {
+    padding: 12px 30px;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px 0;
+  }
+  
+  .form-container .btn-option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .form-container .btn-option.selected {
+    background-color: #1e3a8a;
+    color: white;
+    border-color: #1e3a8a;
+  }
+  
+  .form-container .cta-btn {
+    background-color: #000; /* Change Submit button color to black */
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 15px 40px;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+  }
+  
+  .form-container .cta-btn:hover {
+    background-color: #333; /* Darker black on hover */
+  }
+  
+  .form-container .date-picker {
+    width: 100%;
+  }
+  
+  .form-container input[type="number"] {
+    width: 60px;
+    text-align: center;
+  }
+  
+  /* Line between each question */
+  .form-container .separator {
+    border-bottom: 1px solid #ccc;
+    margin: 80px 0;
+  }
+  
+  /* Increased spacing between each section */
+  .form-container .form-section {
+    margin-bottom: 40px; /* Increase spacing between each question */
+  }
