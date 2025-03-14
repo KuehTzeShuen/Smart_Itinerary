@@ -1,0 +1,19 @@
+.response-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.response-box ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.response-box li {
+  margin-bottom: 10px;
+  color: black; /* Set the text color to black */
+}
+
