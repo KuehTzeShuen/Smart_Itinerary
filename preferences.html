@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wonderplan - Travel Preferences</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,8 +70,8 @@
         }
 
         .form-container label {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 30px;
             display: block;
             color: #333;
         }
@@ -84,12 +85,39 @@
             font-size: 16px;
         }
 
+        .form-container select {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Adds rounded corners */
+            background-color: white;
+            color: #555;
+            appearance: none; /* Removes default styles in some browsers */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .form-container select:focus {
+            outline: none;
+            border-color: #999; /* Slightly darker border on focus */
+        }
+
+
         .form-container .option-group {
             display: flex;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
+
+        .sub-text {
+            font-size: 14px; /* Make the text smaller */
+            color: grey; /* Change color to grey */
+            display: block; /* Ensure it stays on a separate line */
+            margin-top: 3px; /* Add spacing from the first line */
+        }
+
 
         /* Button Style for Radio/Checkbox options */
         .form-container .btn-option {
@@ -111,6 +139,7 @@
             background-color: #1e3a8a;
             color: white;
             border-color: #1e3a8a;
+            
         }
 
         .form-container .cta-btn {
@@ -131,7 +160,23 @@
 
         .form-container .date-picker {
             width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: white;
+            color: #555;
+            cursor: pointer;
+            text-align: left;
+            margin-bottom: 5px;
         }
+
+        /* Ensure border color changes when focused */
+        .date-picker:focus {
+            outline: none;
+            border-color: #999;
+        }
+
 
         .form-container input[type="number"] {
             width: 60px;
@@ -141,12 +186,12 @@
         /* Line between each question */
         .form-container .separator {
             border-bottom: 1px solid #ccc;
-            margin: 80px 0;
+            margin: 40px 0;
         }
 
         /* Increased spacing between each section */
         .form-container .form-section {
-            margin-bottom: 40px; /* Increase spacing between each question */
+            margin-bottom: 60px; /* Increase spacing between each question */
         }
     </style>
 </head>
@@ -180,22 +225,30 @@
 
                 <div class="form-section">
                     <label for="travel-date">When are you planning to travel?</label>
-                    <input type="date" id="travel-date" name="travel-date" class="date-picker">
+                    <!-- <input type="date" id="travel-date" name="travel-date" class="date-picker"> -->
+                    <input type="text" id="travel-date" class="date-picker" placeholder="Select Date.." readonly>
+                    
                 </div>
                 <div class="separator"></div>
 
                 <div class="form-section">
                     <label for="days">How many days are you planning to travel?</label>
-                    <input type="number" id="days" name="days" min="1" value="3">
+                    <input type="number" id="days" name="days" min="1" value="20">
                 </div>
                 <div class="separator"></div>
 
                 <div class="form-section">
                     <label for="budget">What is Your Budget?</label>
                     <div class="option-group">
-                        <button type="button" class="btn-option" data-value="low">Low (0 - 1000 USD)</button>
-                        <button type="button" class="btn-option" data-value="medium">Medium (1000 - 2500 USD)</button>
-                        <button type="button" class="btn-option" data-value="high">High (2500+ USD)</button>
+                        <button type="button" class="btn-option" data-value="low">
+                            Low <br> <span class="sub-text">0 - 1000 USD</span>
+                        </button>
+                        <button type="button" class="btn-option" data-value="medium">
+                            Medium <br> <span class="sub-text">1000 - 2500 USD</span>
+                        </button>
+                        <button type="button" class="btn-option" data-value="high">
+                            High <br> <span class="sub-text">2500+ USD</span>
+                        </button>                        
                     </div>
                 </div>
                 <div class="separator"></div>
@@ -203,10 +256,10 @@
                 <div class="form-section">
                     <label for="travel-with">Who do you plan on traveling with on your next adventure?</label>
                     <div class="option-group">
-                        <button type="button" class="btn-option" data-value="solo">Solo</button>
-                        <button type="button" class="btn-option" data-value="couple">Couple</button>
-                        <button type="button" class="btn-option" data-value="family">Family</button>
-                        <button type="button" class="btn-option" data-value="friends">Friends</button>
+                        <button type="button" class="btn-option" data-value="solo">🚶 Solo</button>
+                        <button type="button" class="btn-option" data-value="couple">👫 Couple</button>
+                        <button type="button" class="btn-option" data-value="family">👪🏻 Family</button>
+                        <button type="button" class="btn-option" data-value="friends">🧑‍🤝‍🧑 Friends</button>
                     </div>
                 </div>
                 <div class="separator"></div>
@@ -241,6 +294,15 @@
             </form>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#travel-date", {
+                dateFormat: "d/m/Y", // Format as day/month/year
+                allowInput: false,   // Prevents manual typing
+                defaultDate: null    // Keeps it empty until selected
+            });
+        });
+    </script>
 </body>
 </html>
